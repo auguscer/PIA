@@ -1,0 +1,137 @@
+<br>
+<center> <font size =10 color="Brown">REGISTRO DE PROYECTOS</font></center> 
+<br>
+<br>
+
+<table>
+<align="left"><font size = 4 color="Red">Datos Generales</align></font >
+<tr>
+<td width="50%">
+<p>
+  <b>Municipio:</b>
+  <%=h @proyecto.municipio %>
+</p>
+
+<p>
+  <b>Departamento:</b>
+  <%=h @proyecto.departamento %>
+</p>
+
+<p>
+  <b>Nombre proyecto:</b>
+  <%=h @proyecto.nombre_proyecto %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%=h @proyecto.descripcion %>
+</p>
+
+
+<p>
+  <b>Objetivos metas:</b>
+  <%=h @proyecto.objetivos_metas %>
+</p>
+
+<p>
+  <b>Justificacion:</b>
+  <%=h @proyecto.justificacion %>
+</p>
+
+
+<p>
+  <b>Costo inversion:</b>
+  <%=h @proyecto.costo_inversion %>
+</p>
+</td>
+<td width="12%"></td>
+<td>
+<p>
+  <b>Plazo ejecucion:</b>
+  <%=h @proyecto.plazo_ejecucion %>
+</p>
+
+<p>
+  <b>Fecha inicio:</b>
+  <%=h @proyecto.fecha_inicio %>
+</p>
+
+<p>
+  <b>Fecha final:</b>
+  <%=h @proyecto.fecha_final %>
+</p>
+
+<p>
+  <b>Mano obra:</b>
+  <%=h @proyecto.mano_obra %>
+</p>
+
+<p>
+  <b>Materiales:</b>
+  <%=h @proyecto.materiales %>
+</p>
+
+<p>
+  <b>Equipos:</b>
+  <%=h @proyecto.equipos %>
+</p>
+
+<p>
+  <b>Gasto general:</b>
+  <%=h @proyecto.gasto_general %>
+</p>
+</td>
+</tr>
+</table>
+<br>
+
+<table>
+<tr>
+<td>
+<p>
+  <b>Otros costos:</b>
+  <%=h @proyecto.otros_costos %>
+</p>
+
+<p>
+  <b>Empleos hombres:</b>
+  <%=h @proyecto.empleos_hombres %>
+</p>
+
+<p>
+  <b>Empleos mujeres:</b>
+  <%=h @proyecto.empleos_mujeres %>
+</p>
+
+<p>
+  <b>Sector:</b>
+  <%=h @proyecto.sector.descripcion %>
+</p>
+</td>
+<td width="35%"></td>
+<td>
+<p>
+  <b>Tipo proy:</b>
+  <%=h @proyecto.tipo_proy.descripcion %>
+</p>
+
+<p>
+  <b>Ubicacion:</b>
+  <%=h @proyecto.ubicacion.descripcion %>
+</p>
+
+<p>
+  <b>Estado:</b>
+  <%=h @proyecto.estado_id %>
+</p>
+
+<p>
+  <b>Contratacion:</b>
+  <%=h @proyecto.contratacion_id %>
+</p>
+</td>
+</tr>
+</table>
+
+<%= link_to 'Modificar', edit_proyecto_path(@proyecto) %> |
+<%= link_to 'Atras', proyectos_path %>

@@ -1,0 +1,2 @@
+module TipoProysHelper
+end

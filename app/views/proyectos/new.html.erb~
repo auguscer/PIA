@@ -1,0 +1,154 @@
+<br>
+<center> <font size =10 color="Brown">INGRESAR NUEVA FICHA DE PROYECTO</font></center> 
+<br>
+<br>
+
+<%= error_messages_for :proyecto %>
+
+<% form_for(@proyecto) do |f| %>
+  
+<table>
+<align="left"><font size = 4 color="Red">Datos Generales</align></font >
+<tr>
+<td>
+  <p>
+    <b>Municipio</b><br />
+    <%= f.text_field :municipio %>
+  </p>
+
+  <p>
+    <b>Departamento</b><br />
+    <%= f.text_field :departamento %>
+  </p>
+
+  <p>
+    <b>Nombre proyecto</b><br />
+    <%= f.text_field :nombre_proyecto %>
+  </p>
+
+  <p>
+    <b>Descripcion</b><br />
+    <%= f.text_field :descripcion %>
+  </p>
+
+<td>
+  <p>
+    <b>Objetivos metas</b><br />
+    <%= f.text_area :objetivos_metas %>
+  </p>
+</td>
+<td>
+  <p>
+    <b>Justificacion</b><br />
+    <%= f.text_area :justificacion %>
+  </p>
+</td>
+
+<td width="1%"></td>
+
+<td>
+ <p>
+    <b>Costo inversion</b><br />
+    <%= f.text_field :costo_inversion %>
+  </p>
+  <p>
+    <b>Plazo ejecucion</b><br />
+    <%= f.text_field :plazo_ejecucion %>
+  </p>
+
+  <p>
+    <b>Fecha inicio</b><br />
+    <%= f.date_select :fecha_inicio %>
+  </p>
+
+  <p>
+    <b>Fecha final</b><br />
+    <%= f.date_select :fecha_final %>
+  </p>
+
+  <p>
+    <b>Mano obra</b><br />
+    <%= f.text_field :mano_obra %>
+  </p>
+
+  <p>
+    <b>Materiales</b><br />
+    <%= f.text_field :materiales %>
+  </p>
+
+  <p>
+    <b>Equipos</b><br />
+    <%= f.text_field :equipos %>
+  </p>
+
+  <p>
+    <b>Gasto general</b><br />
+    <%= f.text_field :gasto_general %>
+  </p>
+</td>
+</tr>
+</table>
+<br>
+<table>
+<tr>
+<td>
+  <p>
+    <b>Otros costos</b><br />
+    <%= f.text_field :otros_costos %>
+  </p>
+
+  <p>
+    <b>Empleos hombres</b><br />
+    <%= f.text_field :empleos_hombres %>
+  </p>
+
+  <p>
+    <b>Empleos mujeres</b><br />
+    <%= f.text_field :empleos_mujeres %>
+  </p>
+
+  <p>
+    <b>Sector</b><br/>
+    <%=@sectors = Sector.find(:all, :order => "descripcion")
+    f.collection_select(:descripcion, @sectors, :id, :descripcion)
+    %>
+  </p>
+</td>
+<td width="35%"></td>
+<td>
+  <p>
+    <b>Tipo proy</b><br />
+    <%=@tipo_proys = TipoProy.find(:all, :order => "descripcion")
+    f.collection_select(:descripcion, @tipo_proys, :id, :descripcion)
+    %>
+  </p>
+
+  <p>
+    <b>Ubicacion</b><br />
+    <%=@ubicacions = Ubicacion.find(:all, :order => "descripcion")
+    f.collection_select(:descripcion, @ubicacions, :id, :descripcion)
+    %>
+  </p>
+
+  <p>
+    <b>Estado</b><br />
+    <%=@estados = Estado.find(:all, :order => "descripcion")
+    f.collection_select(:descripcion, @estados, :id, :descripcion)
+    %>
+  </p>
+
+  <p>
+    <b>Contratacion</b><br />
+   <%=@contracions = Contratacion.find(:all, :order => "descripcion")
+    f.collection_select(:descripcion, @contracions, :id, :descripcion)
+    %>
+  </p>
+</td>
+</tr>
+</table>
+  <p>
+    <%= f.submit "Guardar" %>
+  </p>
+<% end %>
+
+<%= link_to 'Atras', proyectos_path %>

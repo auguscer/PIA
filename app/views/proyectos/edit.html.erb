@@ -1,0 +1,122 @@
+<h1>Editing proyecto</h1>
+
+<%= error_messages_for :proyecto %>
+
+<% form_for(@proyecto) do |f| %>
+  <p>
+    <b>Municipio</b><br />
+    <%= f.text_field :municipio %>
+  </p>
+
+  <p>
+    <b>Departamento</b><br />
+    <%= f.text_field :departamento %>
+  </p>
+
+  <p>
+    <b>Nombre proyecto</b><br />
+    <%= f.text_field :nombre_proyecto %>
+  </p>
+
+  <p>
+    <b>Descripcion</b><br />
+    <%= f.text_field :descripcion %>
+  </p>
+
+  <p>
+    <b>Objetivos metas</b><br />
+    <%= f.text_area :objetivos_metas %>
+  </p>
+
+  <p>
+    <b>Justificacion</b><br />
+    <%= f.text_area :justificacion %>
+  </p>
+
+  <p>
+    <b>Costo inversion</b><br />
+    <%= f.text_field :costo_inversion %>
+  </p>
+
+  <p>
+    <b>Plazo ejecucion</b><br />
+    <%= f.text_field :plazo_ejecucion %>
+  </p>
+
+  <p>
+    <b>Fecha inicio</b><br />
+    <%= f.date_select :fecha_inicio %>
+  </p>
+
+  <p>
+    <b>Fecha final</b><br />
+    <%= f.date_select :fecha_final %>
+  </p>
+
+  <p>
+    <b>Mano obra</b><br />
+    <%= f.text_field :mano_obra %>
+  </p>
+
+  <p>
+    <b>Materiales</b><br />
+    <%= f.text_field :materiales %>
+  </p>
+
+  <p>
+    <b>Equipos</b><br />
+    <%= f.text_field :equipos %>
+  </p>
+
+  <p>
+    <b>Gasto general</b><br />
+    <%= f.text_field :gasto_general %>
+  </p>
+
+  <p>
+    <b>Otros costos</b><br />
+    <%= f.text_field :otros_costos %>
+  </p>
+
+  <p>
+    <b>Empleos hombres</b><br />
+    <%= f.text_field :empleos_hombres %>
+  </p>
+
+  <p>
+    <b>Empleos mujeres</b><br />
+    <%= f.text_field :empleos_mujeres %>
+  </p>
+
+  <p>
+    <b>Sector</b><br />
+    <%= f.text_field :sector_id %>
+  </p>
+
+  <p>
+    <b>Tipo proy</b><br />
+    <%= f.text_field :tipo_proy_id %>
+  </p>
+
+  <p>
+    <b>Ubicacion</b><br />
+    <%= f.text_field :ubicacion_id %>
+  </p>
+
+  <p>
+    <b>Estado</b><br />
+    <%= f.text_field :estado_id %>
+  </p>
+
+  <p>
+    <b>Contratacion</b><br />
+    <%= f.text_field :contratacion_id %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @proyecto %> |
+<%= link_to 'Back', proyectos_path %>

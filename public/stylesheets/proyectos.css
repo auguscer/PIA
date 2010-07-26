@@ -1,0 +1,35 @@
+div#datos_generales {
+     color:green;
+     border-style:solid;
+     border-width:thin;
+     border-color:black;
+     background-color:#BDBDBD;
+     width:60%;
+     padding-left:15px;
+     margin-left:20%;
+     margin-right:20%;
+     }
+div#datos_generales h1 {
+     color:blue;
+     }
+div.item {
+    margin-right:10px;
+    float:left;
+    }
+div.salto {
+    clear:both;
+    margin-bottom:10px;
+    }
+    img.izq {
+    	    float:left;
+    }
+    h1#titulo {
+     color:brown;
+     font-size:xx-large;
+     width:60%;
+     margin-left:20%;
+     margin-right:20%;
+     text-align:center;
+     margin-bottom:45px;     
+     margin-top:25px;
+    }

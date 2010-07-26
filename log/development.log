@@ -1,0 +1,69 @@
+
+
+Processing ProyectosController#index (for 127.0.0.1 at 2010-07-26 15:45:54) [GET]
+  [4;36;1mProyecto Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: proyectos: SELECT * FROM "proyectos" [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: proyectos: SELECT * FROM "proyectos" ):
+  app/controllers/proyectos_controller.rb:5:in `index'
+
+Rendered rescues/_trace (108.9ms)
+Rendered rescues/_request_and_response (1.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProyectosController#index (for 127.0.0.1 at 2010-07-26 15:47:58) [GET]
+  [4;36;1mProyecto Load (1.1ms)[0m   [0;1mSELECT * FROM "proyectos" [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/index
+
+ActionView::TemplateError (undefined method `proyecto_path' for #<ActionView::Base:0xb751bb90>) on line #51 of app/views/proyectos/index.html.erb:
+48:     <td><%=h proyecto.ubicacion_id %></td>
+49:     <td><%=h proyecto.estado_id %></td>
+50:     <td><%=h proyecto.contratacion_id %></td>
+51:     <td><%= link_to 'Show', proyecto %></td>
+52:     <td><%= link_to 'Edit', edit_proyecto_path(proyecto) %></td>
+53:     <td><%= link_to 'Destroy', proyecto, :confirm => 'Are you sure?', :method => :delete %></td>
+54:   </tr>
+
+    app/views/proyectos/index.html.erb:51
+    app/views/proyectos/index.html.erb:28:in `each'
+    app/views/proyectos/index.html.erb:28
+    app/controllers/proyectos_controller.rb:7:in `index'
+
+Rendered rescues/_trace (66.3ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProyectosController#index (for 127.0.0.1 at 2010-07-26 15:49:14) [GET]
+  [4;36;1mProyecto Load (1.1ms)[0m   [0;1mSELECT * FROM "proyectos" [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/index
+Completed in 55ms (View: 40, DB: 1) | 200 OK [http://localhost/proyectos]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-26 15:49:14) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#new (for 127.0.0.1 at 2010-07-26 15:51:33) [GET]
+Rendering template within layouts/proyectos
+Rendering proyectos/new
+  [4;35;1mSector Load (0.5ms)[0m   [0mSELECT * FROM "sectors" ORDER BY descripcion[0m
+  [4;36;1mTipoProy Load (0.4ms)[0m   [0;1mSELECT * FROM "tipo_proys" ORDER BY descripcion[0m
+  [4;35;1mUbicacion Load (0.3ms)[0m   [0mSELECT * FROM "ubicacions" ORDER BY descripcion[0m
+  [4;36;1mEstado Load (0.5ms)[0m   [0;1mSELECT * FROM "estados" ORDER BY descripcion[0m
+  [4;35;1mContratacion Load (0.5ms)[0m   [0mSELECT * FROM "contratacions" ORDER BY descripcion[0m
+Completed in 102ms (View: 88, DB: 2) | 200 OK [http://localhost/proyectos/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-26 15:51:33) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)

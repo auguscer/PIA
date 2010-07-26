@@ -1,0 +1,17 @@
+<h1>Editing estado</h1>
+
+<%= error_messages_for :estado %>
+
+<% form_for(@estado) do |f| %>
+  <p>
+    <b>Descripcion</b><br />
+    <%= f.text_field :descripcion %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @estado %> |
+<%= link_to 'Back', estados_path %>

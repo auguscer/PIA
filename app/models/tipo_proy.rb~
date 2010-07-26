@@ -1,0 +1,2 @@
+class TipoProy < ActiveRecord::Base
+end

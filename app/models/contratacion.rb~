@@ -1,0 +1,2 @@
+class Contratacion < ActiveRecord::Base
+end

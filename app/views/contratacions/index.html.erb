@@ -1,0 +1,20 @@
+<h1>Listing contratacions</h1>
+
+<table>
+  <tr>
+    <th>Descripcion</th>
+  </tr>
+
+<% for contratacion in @contratacions %>
+  <tr>
+    <td><%=h contratacion.descripcion %></td>
+    <td><%= link_to 'Show', contratacion %></td>
+    <td><%= link_to 'Edit', edit_contratacion_path(contratacion) %></td>
+    <td><%= link_to 'Destroy', contratacion, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New contratacion', new_contratacion_path %>
