@@ -1,0 +1,20 @@
+<h1>Editing pia_ocotals_proyecto</h1>
+
+<% form_for(@pia_ocotals_proyecto) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :pia_ocotal_id %><br />
+    <%= f.text_field :pia_ocotal_id %>
+  </p>
+  <p>
+    <%= f.label :proyecto_id %><br />
+    <%= f.text_field :proyecto_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @pia_ocotals_proyecto %> |
+<%= link_to 'Back', pia_ocotals_proyectos_path %>

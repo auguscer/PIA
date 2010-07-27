@@ -1,0 +1,20 @@
+<p>
+  <b>Nombre:</b>
+  <strong><%=h @pia_ocotal.nombre %></strong></p>
+  <p>
+  <b>Fecha:</b>
+  <%=h @pia_ocotal.fecha %>
+</p>
+
+<% @total = 0 %> 
+<% @pia_ocotal.proyectos.each do |proyecto| %>
+  <br />
+  <%=h proyecto.nombre_proyecto %>
+  <%=h proyecto.mano_obra %>
+  <% @total +=  proyecto.mano_obra.to_i %>
+<% end %>
+<br />Total: <%= @total %>
+
+<br /><br />
+<%= link_to 'Modificar', edit_pia_ocotal_path(@pia_ocotal) %> |
+<%= link_to 'Back', pia_ocotals_path %>

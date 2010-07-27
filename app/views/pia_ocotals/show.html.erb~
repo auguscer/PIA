@@ -1,0 +1,13 @@
+<p>
+  <b>Nombre:</b>
+  <%=h @pia_ocotal.nombre %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <%=h @pia_ocotal.fecha %>
+</p>
+
+
+<%= link_to 'Edit', edit_pia_ocotal_path(@pia_ocotal) %> |
+<%= link_to 'Back', pia_ocotals_path %>

@@ -1,0 +1,2 @@
+class PiaOcotal < ActiveRecord::Base
+end

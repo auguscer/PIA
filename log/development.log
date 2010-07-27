@@ -67,3 +67,1470 @@ ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:met
   
 
 Rendering rescues/layout (not_found)
+  [4;36;1mSQL (15.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (13.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM "schema_info"[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('6')[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('3')[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('2')[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('4')[0m
+  [4;35;1mSQL (3.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('5')[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mDROP TABLE "schema_info"[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateProyectos (1)
+Migrating to CreateSectors (2)
+Migrating to CreateTipoProys (3)
+Migrating to CreateUbicacions (4)
+Migrating to CreateEstados (5)
+Migrating to CreateContratacions (6)
+Migrating to CreatePiaOcotals (20100727165703)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "pia_ocotals" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "fecha" date, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100727165703')[0m
+Migrating to CreatePiaOcotalsProyectos (20100727165938)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "pia_ocotals_proyectos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "pia_ocotal_id" integer, "proyecto_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100727165938')[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("contratacions")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("estados")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("pia_ocotals")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("pia_ocotals_proyectos")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("proyectos")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("sectors")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("tipo_proys")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("ubicacions")[0m
+
+
+Processing PiaOcotalsController#index (for 127.0.0.1 at 2010-07-27 11:24:27) [GET]
+  [4;36;1mPiaOcotal Load (1.1ms)[0m   [0;1mSELECT * FROM "pia_ocotals" [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/index
+Completed in 78ms (View: 33, DB: 1) | 200 OK [http://localhost/pia_ocotals]
+
+
+Processing PiaOcotalsController#new (for 127.0.0.1 at 2010-07-27 11:24:30) [GET]
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/new
+Completed in 37ms (View: 27, DB: 0) | 200 OK [http://localhost/pia_ocotals/new]
+
+
+Processing PiaOcotalsController#create (for 127.0.0.1 at 2010-07-27 11:24:39) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I=", "pia_ocotal"=>{"nombre"=>"", "fecha(1i)"=>"2010", "fecha(2i)"=>"7", "fecha(3i)"=>"27"}}
+  [4;35;1mPiaOcotal Create (0.5ms)[0m   [0mINSERT INTO "pia_ocotals" ("created_at", "nombre", "updated_at", "fecha") VALUES('2010-07-27 17:24:39', '', '2010-07-27 17:24:39', '2010-07-27')[0m
+Redirected to http://localhost:3000/pia_ocotals/1
+Completed in 20ms (DB: 0) | 302 Found [http://localhost/pia_ocotals]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 11:24:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 1) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+Completed in 88ms (View: 76, DB: 0) | 200 OK [http://localhost/pia_ocotals/1]
+
+
+Processing PiaOcotalsController#edit (for 127.0.0.1 at 2010-07-27 11:24:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPiaOcotal Load (0.2ms)[0m   [0mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 1) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/edit
+Completed in 33ms (View: 22, DB: 0) | 200 OK [http://localhost/pia_ocotals/1/edit]
+
+
+Processing PiaOcotalsController#update (for 127.0.0.1 at 2010-07-27 11:25:55) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I=", "id"=>"1", "pia_ocotal"=>{"nombre"=>"Elaboracion Octubre 2011", "fecha(1i)"=>"2010", "fecha(2i)"=>"10", "fecha(3i)"=>"19"}}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 1) [0m
+  [4;35;1mPiaOcotal Update (0.3ms)[0m   [0mUPDATE "pia_ocotals" SET "updated_at" = '2010-07-27 17:25:55', "nombre" = 'Elaboracion Octubre 2011', "fecha" = '2010-10-19' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/pia_ocotals/1
+Completed in 21ms (DB: 0) | 302 Found [http://localhost/pia_ocotals/1]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 11:25:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 1) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://localhost/pia_ocotals/1]
+
+
+Processing PiaOcotalsController#index (for 127.0.0.1 at 2010-07-27 11:25:57) [GET]
+  [4;35;1mPiaOcotal Load (0.7ms)[0m   [0mSELECT * FROM "pia_ocotals" [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/index
+Completed in 19ms (View: 8, DB: 1) | 200 OK [http://localhost/pia_ocotals]
+
+
+Processing PiaOcotalsController#new (for 127.0.0.1 at 2010-07-27 11:25:58) [GET]
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/new
+Completed in 25ms (View: 14, DB: 0) | 200 OK [http://localhost/pia_ocotals/new]
+
+
+Processing PiaOcotalsController#create (for 127.0.0.1 at 2010-07-27 11:26:31) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I=", "pia_ocotal"=>{"nombre"=>"Primera Modificacion  2011", "fecha(1i)"=>"2011", "fecha(2i)"=>"1", "fecha(3i)"=>"10"}}
+  [4;36;1mPiaOcotal Create (0.3ms)[0m   [0;1mINSERT INTO "pia_ocotals" ("created_at", "nombre", "updated_at", "fecha") VALUES('2010-07-27 17:26:31', 'Primera Modificacion 2011', '2010-07-27 17:26:31', '2011-01-10')[0m
+Redirected to http://localhost:3000/pia_ocotals/2
+Completed in 20ms (DB: 0) | 302 Found [http://localhost/pia_ocotals]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 11:26:31) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mPiaOcotal Load (0.2ms)[0m   [0mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://localhost/pia_ocotals/2]
+
+
+Processing PiaOcotalsController#index (for 127.0.0.1 at 2010-07-27 11:26:34) [GET]
+  [4;36;1mPiaOcotal Load (0.8ms)[0m   [0;1mSELECT * FROM "pia_ocotals" [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/index
+Completed in 24ms (View: 13, DB: 1) | 200 OK [http://localhost/pia_ocotals]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 11:26:55) [GET]
+
+ActionController::RoutingError (No route matches "/pia_ocotal_proyectos" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PiaOcotalsProyectosController#index (for 127.0.0.1 at 2010-07-27 11:27:00) [GET]
+  [4;35;1mPiaOcotalsProyecto Load (0.6ms)[0m   [0mSELECT * FROM "pia_ocotals_proyectos" [0m
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/index
+Completed in 22ms (View: 13, DB: 1) | 200 OK [http://localhost/pia_ocotals_proyectos]
+
+
+Processing PiaOcotalsProyectosController#new (for 127.0.0.1 at 2010-07-27 11:27:03) [GET]
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/new
+Completed in 25ms (View: 16, DB: 0) | 200 OK [http://localhost/pia_ocotals_proyectos/new]
+
+
+Processing PiaOcotalsProyectosController#create (for 127.0.0.1 at 2010-07-27 11:27:20) [POST]
+  Parameters: {"commit"=>"Create", "pia_ocotals_proyecto"=>{"pia_ocotal_id"=>"1", "proyecto_id"=>"1"}, "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I="}
+  [4;36;1mPiaOcotalsProyecto Create (0.3ms)[0m   [0;1mINSERT INTO "pia_ocotals_proyectos" ("pia_ocotal_id", "proyecto_id", "created_at", "updated_at") VALUES(1, 1, '2010-07-27 17:27:20', '2010-07-27 17:27:20')[0m
+Redirected to http://localhost:3000/pia_ocotals_proyectos/1
+Completed in 18ms (DB: 0) | 302 Found [http://localhost/pia_ocotals_proyectos]
+
+
+Processing PiaOcotalsProyectosController#show (for 127.0.0.1 at 2010-07-27 11:27:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPiaOcotalsProyecto Load (0.2ms)[0m   [0mSELECT * FROM "pia_ocotals_proyectos" WHERE ("pia_ocotals_proyectos"."id" = 1) [0m
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/show
+Completed in 19ms (View: 9, DB: 0) | 200 OK [http://localhost/pia_ocotals_proyectos/1]
+
+
+Processing PiaOcotalsProyectosController#index (for 127.0.0.1 at 2010-07-27 11:27:21) [GET]
+  [4;36;1mPiaOcotalsProyecto Load (0.7ms)[0m   [0;1mSELECT * FROM "pia_ocotals_proyectos" [0m
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/index
+Completed in 18ms (View: 8, DB: 1) | 200 OK [http://localhost/pia_ocotals_proyectos]
+
+
+Processing PiaOcotalsProyectosController#new (for 127.0.0.1 at 2010-07-27 11:27:37) [GET]
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/new
+Completed in 20ms (View: 10, DB: 0) | 200 OK [http://localhost/pia_ocotals_proyectos/new]
+
+
+Processing PiaOcotalsProyectosController#create (for 127.0.0.1 at 2010-07-27 11:27:47) [POST]
+  Parameters: {"commit"=>"Create", "pia_ocotals_proyecto"=>{"pia_ocotal_id"=>"1", "proyecto_id"=>"3"}, "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I="}
+  [4;35;1mPiaOcotalsProyecto Create (0.3ms)[0m   [0mINSERT INTO "pia_ocotals_proyectos" ("pia_ocotal_id", "proyecto_id", "created_at", "updated_at") VALUES(1, 3, '2010-07-27 17:27:47', '2010-07-27 17:27:47')[0m
+Redirected to http://localhost:3000/pia_ocotals_proyectos/2
+Completed in 17ms (DB: 0) | 302 Found [http://localhost/pia_ocotals_proyectos]
+
+
+Processing PiaOcotalsProyectosController#show (for 127.0.0.1 at 2010-07-27 11:27:47) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPiaOcotalsProyecto Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals_proyectos" WHERE ("pia_ocotals_proyectos"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/show
+Completed in 14ms (View: 4, DB: 0) | 200 OK [http://localhost/pia_ocotals_proyectos/2]
+
+
+Processing PiaOcotalsProyectosController#index (for 127.0.0.1 at 2010-07-27 11:27:49) [GET]
+  [4;35;1mPiaOcotalsProyecto Load (0.8ms)[0m   [0mSELECT * FROM "pia_ocotals_proyectos" [0m
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/index
+Completed in 23ms (View: 13, DB: 1) | 200 OK [http://localhost/pia_ocotals_proyectos]
+
+
+Processing PiaOcotalsProyectosController#new (for 127.0.0.1 at 2010-07-27 11:27:55) [GET]
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/new
+Completed in 20ms (View: 11, DB: 0) | 200 OK [http://localhost/pia_ocotals_proyectos/new]
+
+
+Processing PiaOcotalsProyectosController#create (for 127.0.0.1 at 2010-07-27 11:28:00) [POST]
+  Parameters: {"commit"=>"Create", "pia_ocotals_proyecto"=>{"pia_ocotal_id"=>"1", "proyecto_id"=>"2"}, "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I="}
+  [4;36;1mPiaOcotalsProyecto Create (0.3ms)[0m   [0;1mINSERT INTO "pia_ocotals_proyectos" ("pia_ocotal_id", "proyecto_id", "created_at", "updated_at") VALUES(1, 2, '2010-07-27 17:28:00', '2010-07-27 17:28:00')[0m
+Redirected to http://localhost:3000/pia_ocotals_proyectos/3
+Completed in 17ms (DB: 0) | 302 Found [http://localhost/pia_ocotals_proyectos]
+
+
+Processing PiaOcotalsProyectosController#show (for 127.0.0.1 at 2010-07-27 11:28:00) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mPiaOcotalsProyecto Load (0.2ms)[0m   [0mSELECT * FROM "pia_ocotals_proyectos" WHERE ("pia_ocotals_proyectos"."id" = 3) [0m
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/show
+Completed in 14ms (View: 4, DB: 0) | 200 OK [http://localhost/pia_ocotals_proyectos/3]
+
+
+Processing PiaOcotalsProyectosController#index (for 127.0.0.1 at 2010-07-27 11:28:02) [GET]
+  [4;36;1mPiaOcotalsProyecto Load (0.8ms)[0m   [0;1mSELECT * FROM "pia_ocotals_proyectos" [0m
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/index
+Completed in 26ms (View: 17, DB: 1) | 200 OK [http://localhost/pia_ocotals_proyectos]
+
+
+Processing PiaOcotalsProyectosController#new (for 127.0.0.1 at 2010-07-27 11:28:03) [GET]
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/new
+Completed in 20ms (View: 10, DB: 0) | 200 OK [http://localhost/pia_ocotals_proyectos/new]
+
+
+Processing PiaOcotalsProyectosController#create (for 127.0.0.1 at 2010-07-27 11:28:08) [POST]
+  Parameters: {"commit"=>"Create", "pia_ocotals_proyecto"=>{"pia_ocotal_id"=>"1", "proyecto_id"=>"6"}, "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I="}
+  [4;35;1mPiaOcotalsProyecto Create (0.3ms)[0m   [0mINSERT INTO "pia_ocotals_proyectos" ("pia_ocotal_id", "proyecto_id", "created_at", "updated_at") VALUES(1, 6, '2010-07-27 17:28:08', '2010-07-27 17:28:08')[0m
+Redirected to http://localhost:3000/pia_ocotals_proyectos/4
+Completed in 18ms (DB: 0) | 302 Found [http://localhost/pia_ocotals_proyectos]
+
+
+Processing PiaOcotalsProyectosController#show (for 127.0.0.1 at 2010-07-27 11:28:08) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mPiaOcotalsProyecto Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals_proyectos" WHERE ("pia_ocotals_proyectos"."id" = 4) [0m
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/show
+Completed in 14ms (View: 4, DB: 0) | 200 OK [http://localhost/pia_ocotals_proyectos/4]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 11:28:26) [GET]
+
+ActionController::RoutingError (No route matches "/pia_ocotals%202" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 11:28:36) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mPiaOcotal Load (0.2ms)[0m   [0mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+Completed in 15ms (View: 4, DB: 0) | 200 OK [http://localhost/pia_ocotals/2]
+
+
+Processing PiaOcotalsProyectosController#show (for 127.0.0.1 at 2010-07-27 11:29:08) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPiaOcotalsProyecto Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals_proyectos" WHERE ("pia_ocotals_proyectos"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/show
+Completed in 14ms (View: 4, DB: 0) | 200 OK [http://localhost/pia_ocotals_proyectos/2]
+
+
+Processing PiaOcotalsProyectosController#index (for 127.0.0.1 at 2010-07-27 11:29:14) [GET]
+  [4;35;1mPiaOcotalsProyecto Load (0.9ms)[0m   [0mSELECT * FROM "pia_ocotals_proyectos" [0m
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/index
+Completed in 31ms (View: 21, DB: 1) | 200 OK [http://localhost/pia_ocotals_proyectos]
+
+
+Processing PiaOcotalsProyectosController#new (for 127.0.0.1 at 2010-07-27 11:29:18) [GET]
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/new
+Completed in 22ms (View: 11, DB: 0) | 200 OK [http://localhost/pia_ocotals_proyectos/new]
+
+
+Processing PiaOcotalsProyectosController#create (for 127.0.0.1 at 2010-07-27 11:29:32) [POST]
+  Parameters: {"commit"=>"Create", "pia_ocotals_proyecto"=>{"pia_ocotal_id"=>"2", "proyecto_id"=>"1"}, "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I="}
+  [4;36;1mPiaOcotalsProyecto Create (0.3ms)[0m   [0;1mINSERT INTO "pia_ocotals_proyectos" ("pia_ocotal_id", "proyecto_id", "created_at", "updated_at") VALUES(2, 1, '2010-07-27 17:29:32', '2010-07-27 17:29:32')[0m
+Redirected to http://localhost:3000/pia_ocotals_proyectos/5
+Completed in 21ms (DB: 0) | 302 Found [http://localhost/pia_ocotals_proyectos]
+
+
+Processing PiaOcotalsProyectosController#show (for 127.0.0.1 at 2010-07-27 11:29:32) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mPiaOcotalsProyecto Load (0.2ms)[0m   [0mSELECT * FROM "pia_ocotals_proyectos" WHERE ("pia_ocotals_proyectos"."id" = 5) [0m
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/show
+Completed in 14ms (View: 4, DB: 0) | 200 OK [http://localhost/pia_ocotals_proyectos/5]
+
+
+Processing PiaOcotalsProyectosController#index (for 127.0.0.1 at 2010-07-27 11:29:33) [GET]
+  [4;36;1mPiaOcotalsProyecto Load (0.9ms)[0m   [0;1mSELECT * FROM "pia_ocotals_proyectos" [0m
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/index
+Completed in 35ms (View: 26, DB: 1) | 200 OK [http://localhost/pia_ocotals_proyectos]
+
+
+Processing PiaOcotalsProyectosController#new (for 127.0.0.1 at 2010-07-27 11:29:34) [GET]
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/new
+Completed in 20ms (View: 11, DB: 0) | 200 OK [http://localhost/pia_ocotals_proyectos/new]
+
+
+Processing PiaOcotalsProyectosController#create (for 127.0.0.1 at 2010-07-27 11:29:40) [POST]
+  Parameters: {"commit"=>"Create", "pia_ocotals_proyecto"=>{"pia_ocotal_id"=>"2", "proyecto_id"=>"5"}, "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I="}
+  [4;35;1mPiaOcotalsProyecto Create (0.3ms)[0m   [0mINSERT INTO "pia_ocotals_proyectos" ("pia_ocotal_id", "proyecto_id", "created_at", "updated_at") VALUES(2, 5, '2010-07-27 17:29:40', '2010-07-27 17:29:40')[0m
+Redirected to http://localhost:3000/pia_ocotals_proyectos/6
+Completed in 17ms (DB: 0) | 302 Found [http://localhost/pia_ocotals_proyectos]
+
+
+Processing PiaOcotalsProyectosController#show (for 127.0.0.1 at 2010-07-27 11:29:40) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mPiaOcotalsProyecto Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals_proyectos" WHERE ("pia_ocotals_proyectos"."id" = 6) [0m
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/show
+Completed in 82ms (View: 4, DB: 0) | 200 OK [http://localhost/pia_ocotals_proyectos/6]
+
+
+Processing PiaOcotalsProyectosController#index (for 127.0.0.1 at 2010-07-27 11:29:41) [GET]
+  [4;35;1mPiaOcotalsProyecto Load (1.0ms)[0m   [0mSELECT * FROM "pia_ocotals_proyectos" [0m
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/index
+Completed in 40ms (View: 30, DB: 1) | 200 OK [http://localhost/pia_ocotals_proyectos]
+
+
+Processing PiaOcotalsProyectosController#new (for 127.0.0.1 at 2010-07-27 11:29:42) [GET]
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/new
+Completed in 20ms (View: 11, DB: 0) | 200 OK [http://localhost/pia_ocotals_proyectos/new]
+
+
+Processing PiaOcotalsProyectosController#create (for 127.0.0.1 at 2010-07-27 11:29:48) [POST]
+  Parameters: {"commit"=>"Create", "pia_ocotals_proyecto"=>{"pia_ocotal_id"=>"2", "proyecto_id"=>"3"}, "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I="}
+  [4;36;1mPiaOcotalsProyecto Create (0.3ms)[0m   [0;1mINSERT INTO "pia_ocotals_proyectos" ("pia_ocotal_id", "proyecto_id", "created_at", "updated_at") VALUES(2, 3, '2010-07-27 17:29:48', '2010-07-27 17:29:48')[0m
+Redirected to http://localhost:3000/pia_ocotals_proyectos/7
+Completed in 17ms (DB: 0) | 302 Found [http://localhost/pia_ocotals_proyectos]
+
+
+Processing PiaOcotalsProyectosController#show (for 127.0.0.1 at 2010-07-27 11:29:48) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mPiaOcotalsProyecto Load (0.2ms)[0m   [0mSELECT * FROM "pia_ocotals_proyectos" WHERE ("pia_ocotals_proyectos"."id" = 7) [0m
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/show
+Completed in 14ms (View: 4, DB: 0) | 200 OK [http://localhost/pia_ocotals_proyectos/7]
+
+
+Processing PiaOcotalsProyectosController#index (for 127.0.0.1 at 2010-07-27 11:29:50) [GET]
+  [4;36;1mPiaOcotalsProyecto Load (1.0ms)[0m   [0;1mSELECT * FROM "pia_ocotals_proyectos" [0m
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/index
+Completed in 44ms (View: 34, DB: 1) | 200 OK [http://localhost/pia_ocotals_proyectos]
+
+
+Processing PiaOcotalsController#index (for 127.0.0.1 at 2010-07-27 11:39:59) [GET]
+  [4;35;1mPiaOcotal Load (0.8ms)[0m   [0mSELECT * FROM "pia_ocotals" [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/index
+Completed in 25ms (View: 14, DB: 1) | 200 OK [http://localhost/pia_ocotals]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 11:40:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 1) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;35;1mProyecto Load (0.8ms)[0m   [0mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 1 ) [0m
+Completed in 54ms (View: 42, DB: 1) | 200 OK [http://localhost/pia_ocotals/1]
+
+
+Processing PiaOcotalsController#index (for 127.0.0.1 at 2010-07-27 11:40:15) [GET]
+  [4;36;1mPiaOcotal Load (0.8ms)[0m   [0;1mSELECT * FROM "pia_ocotals" [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/index
+Completed in 23ms (View: 13, DB: 1) | 200 OK [http://localhost/pia_ocotals]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 11:40:16) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mPiaOcotal Load (0.2ms)[0m   [0mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;36;1mProyecto Load (0.6ms)[0m   [0;1mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 2 ) [0m
+Completed in 31ms (View: 19, DB: 1) | 200 OK [http://localhost/pia_ocotals/2]
+
+
+Processing PiaOcotalsController#index (for 127.0.0.1 at 2010-07-27 11:40:20) [GET]
+  [4;35;1mPiaOcotal Load (0.8ms)[0m   [0mSELECT * FROM "pia_ocotals" [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/index
+Completed in 23ms (View: 13, DB: 1) | 200 OK [http://localhost/pia_ocotals]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 11:40:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 1) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;35;1mProyecto Load (0.6ms)[0m   [0mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 1 ) [0m
+Completed in 34ms (View: 21, DB: 1) | 200 OK [http://localhost/pia_ocotals/1]
+
+
+Processing PiaOcotalsController#index (for 127.0.0.1 at 2010-07-27 11:40:24) [GET]
+  [4;36;1mPiaOcotal Load (0.8ms)[0m   [0;1mSELECT * FROM "pia_ocotals" [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/index
+Completed in 24ms (View: 13, DB: 1) | 200 OK [http://localhost/pia_ocotals]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 11:40:25) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mPiaOcotal Load (0.2ms)[0m   [0mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;36;1mProyecto Load (0.6ms)[0m   [0;1mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 2 ) [0m
+Completed in 31ms (View: 19, DB: 1) | 200 OK [http://localhost/pia_ocotals/2]
+
+
+Processing PiaOcotalsController#index (for 127.0.0.1 at 2010-07-27 11:40:27) [GET]
+  [4;35;1mPiaOcotal Load (0.8ms)[0m   [0mSELECT * FROM "pia_ocotals" [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/index
+Completed in 23ms (View: 13, DB: 1) | 200 OK [http://localhost/pia_ocotals]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 11:40:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 1) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;35;1mProyecto Load (0.6ms)[0m   [0mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 1 ) [0m
+Completed in 99ms (View: 87, DB: 1) | 200 OK [http://localhost/pia_ocotals/1]
+
+
+Processing PiaOcotalsProyectosController#index (for 127.0.0.1 at 2010-07-27 11:41:15) [GET]
+  [4;36;1mPiaOcotalsProyecto Load (1.0ms)[0m   [0;1mSELECT * FROM "pia_ocotals_proyectos" [0m
+Rendering template within layouts/pia_ocotals_proyectos
+Rendering pia_ocotals_proyectos/index
+Completed in 44ms (View: 34, DB: 1) | 200 OK [http://localhost/pia_ocotals_proyectos]
+
+
+Processing ProyectosController#index (for 127.0.0.1 at 2010-07-27 11:41:30) [GET]
+  [4;35;1mProyecto Load (1.0ms)[0m   [0mSELECT * FROM "proyectos" [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/index
+Completed in 41ms (View: 28, DB: 1) | 200 OK [http://localhost/proyectos]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 11:41:30) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#new (for 127.0.0.1 at 2010-07-27 11:41:53) [GET]
+Rendering template within layouts/proyectos
+Rendering proyectos/new
+  [4;36;1mSector Load (0.5ms)[0m   [0;1mSELECT * FROM "sectors" ORDER BY descripcion[0m
+  [4;35;1mTipoProy Load (0.4ms)[0m   [0mSELECT * FROM "tipo_proys" ORDER BY descripcion[0m
+  [4;36;1mUbicacion Load (0.4ms)[0m   [0;1mSELECT * FROM "ubicacions" ORDER BY descripcion[0m
+  [4;35;1mEstado Load (0.5ms)[0m   [0mSELECT * FROM "estados" ORDER BY descripcion[0m
+  [4;36;1mContratacion Load (0.5ms)[0m   [0;1mSELECT * FROM "contratacions" ORDER BY descripcion[0m
+Completed in 169ms (View: 153, DB: 2) | 200 OK [http://localhost/proyectos/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 11:41:53) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#create (for 127.0.0.1 at 2010-07-27 11:42:33) [POST]
+  Parameters: {"commit"=>"Guardar", "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I=", "proyecto"=>{"otros_costos"=>"", "equipos"=>"", "fecha_final(1i)"=>"2010", "fecha_inicio(3i)"=>"27", "plazo_ejecucion"=>"", "materiales"=>"", "fecha_final(2i)"=>"7", "fecha_final(3i)"=>"27", "costo_inversion"=>"", "municipio"=>"", "empleos_hombres"=>"", "justificacion"=>"", "descripcion"=>"1", "empleos_mujeres"=>"", "mano_obra"=>"", "departamento"=>"", "nombre_proyecto"=>"construccion de vivienda", "gasto_general"=>"", "fecha_inicio(1i)"=>"2010", "fecha_inicio(2i)"=>"7", "objetivos_metas"=>""}}
+  [4;35;1mProyecto Create (0.3ms)[0m   [0mINSERT INTO "proyectos" ("plazo_ejecucion", "fecha_inicio", "fecha_final", "equipos", "otros_costos", "sector_id", "materiales", "created_at", "municipio", "costo_inversion", "estado_id", "justificacion", "empleos_hombres", "updated_at", "descripcion", "mano_obra", "empleos_mujeres", "departamento", "nombre_proyecto", "tipo_proy_id", "gasto_general", "ubicacion_id", "contratacion_id", "objetivos_metas") VALUES(NULL, '2010-07-27', '2010-07-27', NULL, NULL, NULL, NULL, '2010-07-27 17:42:33', '', NULL, NULL, '', NULL, '2010-07-27 17:42:33', '1', NULL, NULL, '', 'construccion de vivienda', NULL, NULL, NULL, NULL, '')[0m
+Redirected to http://localhost:3000/proyectos/2
+Completed in 29ms (DB: 0) | 302 Found [http://localhost/proyectos]
+
+
+Processing ProyectosController#show (for 127.0.0.1 at 2010-07-27 11:42:33) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mProyecto Load (0.4ms)[0m   [0;1mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 2) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/show
+
+ActionView::TemplateError (undefined method `descripcion' for nil:NilClass) on line #106 of app/views/proyectos/show.html.erb:
+103: 
+104: <p>
+105:   <b>Sector:</b>
+106:   <%=h @proyecto.sector.descripcion %>
+107: </p>
+108: </td>
+109: <td width="35%"></td>
+
+    app/views/proyectos/show.html.erb:106
+    app/controllers/proyectos_controller.rb:18:in `show'
+
+Rendered rescues/_trace (142.8ms)
+Rendered rescues/_request_and_response (1.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProyectosController#create (for 127.0.0.1 at 2010-07-27 11:43:10) [POST]
+  Parameters: {"commit"=>"Guardar", "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I=", "proyecto"=>{"otros_costos"=>"", "equipos"=>"", "fecha_final(1i)"=>"2010", "fecha_inicio(3i)"=>"27", "plazo_ejecucion"=>"", "materiales"=>"", "fecha_final(2i)"=>"7", "fecha_final(3i)"=>"27", "costo_inversion"=>"", "municipio"=>"", "empleos_hombres"=>"", "justificacion"=>"", "descripcion"=>"3", "empleos_mujeres"=>"", "mano_obra"=>"", "departamento"=>"", "nombre_proyecto"=>"construccion de vivienda", "gasto_general"=>"", "fecha_inicio(1i)"=>"2010", "fecha_inicio(2i)"=>"7", "objetivos_metas"=>""}}
+  [4;35;1mProyecto Create (0.4ms)[0m   [0mINSERT INTO "proyectos" ("plazo_ejecucion", "fecha_inicio", "fecha_final", "equipos", "otros_costos", "sector_id", "materiales", "created_at", "municipio", "costo_inversion", "estado_id", "justificacion", "empleos_hombres", "updated_at", "descripcion", "mano_obra", "empleos_mujeres", "departamento", "nombre_proyecto", "tipo_proy_id", "gasto_general", "ubicacion_id", "contratacion_id", "objetivos_metas") VALUES(NULL, '2010-07-27', '2010-07-27', NULL, NULL, NULL, NULL, '2010-07-27 17:43:10', '', NULL, NULL, '', NULL, '2010-07-27 17:43:10', '3', NULL, NULL, '', 'construccion de vivienda', NULL, NULL, NULL, NULL, '')[0m
+Redirected to http://localhost:3000/proyectos/3
+Completed in 29ms (DB: 0) | 302 Found [http://localhost/proyectos]
+
+
+Processing ProyectosController#show (for 127.0.0.1 at 2010-07-27 11:43:10) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProyecto Load (0.4ms)[0m   [0;1mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 3) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/show
+
+ActionView::TemplateError (undefined method `descripcion' for nil:NilClass) on line #106 of app/views/proyectos/show.html.erb:
+103: 
+104: <p>
+105:   <b>Sector:</b>
+106:   <%=h @proyecto.sector.descripcion %>
+107: </p>
+108: </td>
+109: <td width="35%"></td>
+
+    app/views/proyectos/show.html.erb:106
+    app/controllers/proyectos_controller.rb:18:in `show'
+
+Rendered rescues/_trace (60.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProyectosController#create (for 127.0.0.1 at 2010-07-27 11:43:38) [POST]
+  Parameters: {"commit"=>"Guardar", "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I=", "proyecto"=>{"otros_costos"=>"", "equipos"=>"", "fecha_final(1i)"=>"2010", "fecha_inicio(3i)"=>"27", "plazo_ejecucion"=>"", "materiales"=>"", "fecha_final(2i)"=>"7", "fecha_final(3i)"=>"27", "costo_inversion"=>"", "municipio"=>"", "empleos_hombres"=>"", "justificacion"=>"", "descripcion"=>"3", "empleos_mujeres"=>"", "mano_obra"=>"", "departamento"=>"", "nombre_proyecto"=>"construccion de vivienda", "gasto_general"=>"", "fecha_inicio(1i)"=>"2010", "fecha_inicio(2i)"=>"7", "objetivos_metas"=>""}}
+  [4;35;1mProyecto Create (0.4ms)[0m   [0mINSERT INTO "proyectos" ("plazo_ejecucion", "fecha_inicio", "fecha_final", "equipos", "otros_costos", "sector_id", "materiales", "created_at", "municipio", "costo_inversion", "estado_id", "justificacion", "empleos_hombres", "updated_at", "descripcion", "mano_obra", "empleos_mujeres", "departamento", "nombre_proyecto", "tipo_proy_id", "gasto_general", "ubicacion_id", "contratacion_id", "objetivos_metas") VALUES(NULL, '2010-07-27', '2010-07-27', NULL, NULL, NULL, NULL, '2010-07-27 17:43:38', '', NULL, NULL, '', NULL, '2010-07-27 17:43:38', '3', NULL, NULL, '', 'construccion de vivienda', NULL, NULL, NULL, NULL, '')[0m
+Redirected to http://localhost:3000/proyectos/4
+Completed in 30ms (DB: 0) | 302 Found [http://localhost/proyectos]
+
+
+Processing ProyectosController#show (for 127.0.0.1 at 2010-07-27 11:43:38) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mProyecto Load (0.4ms)[0m   [0;1mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 4) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/show
+
+ActionView::TemplateError (undefined method `descripcion' for nil:NilClass) on line #106 of app/views/proyectos/show.html.erb:
+103: 
+104: <p>
+105:   <b>Sector:</b>
+106:   <%=h @proyecto.sector.descripcion %>
+107: </p>
+108: </td>
+109: <td width="35%"></td>
+
+    app/views/proyectos/show.html.erb:106
+    app/controllers/proyectos_controller.rb:18:in `show'
+
+Rendered rescues/_trace (59.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProyectosController#create (for 127.0.0.1 at 2010-07-27 11:48:55) [POST]
+  Parameters: {"commit"=>"Guardar", "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I=", "proyecto"=>{"otros_costos"=>"", "equipos"=>"", "fecha_final(1i)"=>"2010", "fecha_inicio(3i)"=>"27", "plazo_ejecucion"=>"", "materiales"=>"", "fecha_final(2i)"=>"7", "fecha_final(3i)"=>"27", "costo_inversion"=>"", "municipio"=>"", "empleos_hombres"=>"", "justificacion"=>"", "descripcion"=>"3", "empleos_mujeres"=>"", "mano_obra"=>"", "departamento"=>"", "nombre_proyecto"=>"construccion de vivienda", "gasto_general"=>"", "fecha_inicio(1i)"=>"2010", "fecha_inicio(2i)"=>"7", "objetivos_metas"=>""}}
+  [4;36;1mProyecto Create (0.5ms)[0m   [0;1mINSERT INTO "proyectos" ("plazo_ejecucion", "fecha_inicio", "fecha_final", "equipos", "otros_costos", "sector_id", "materiales", "created_at", "municipio", "costo_inversion", "estado_id", "justificacion", "empleos_hombres", "updated_at", "descripcion", "mano_obra", "empleos_mujeres", "departamento", "nombre_proyecto", "tipo_proy_id", "gasto_general", "ubicacion_id", "contratacion_id", "objetivos_metas") VALUES(NULL, '2010-07-27', '2010-07-27', NULL, NULL, NULL, NULL, '2010-07-27 17:48:55', '', NULL, NULL, '', NULL, '2010-07-27 17:48:55', '3', NULL, NULL, '', 'construccion de vivienda', NULL, NULL, NULL, NULL, '')[0m
+Redirected to http://localhost:3000/proyectos/5
+Completed in 50ms (DB: 1) | 302 Found [http://localhost/proyectos]
+
+
+Processing ProyectosController#show (for 127.0.0.1 at 2010-07-27 11:48:55) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mProyecto Load (0.4ms)[0m   [0mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 5) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/show
+
+ActionView::TemplateError (undefined method `descripcion' for nil:NilClass) on line #106 of app/views/proyectos/show.html.erb:
+103: 
+104: <p>
+105:   <b>Sector:</b>
+106:   <%=h @proyecto.sector.descripcion %>
+107: </p>
+108: </td>
+109: <td width="35%"></td>
+
+    app/views/proyectos/show.html.erb:106
+    app/controllers/proyectos_controller.rb:18:in `show'
+
+Rendered rescues/_trace (133.3ms)
+Rendered rescues/_request_and_response (1.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProyectosController#show (for 127.0.0.1 at 2010-07-27 11:51:44) [GET]
+  Parameters: {"id"=>"5"}
+  [4;36;1mProyecto Load (0.4ms)[0m   [0;1mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 5) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/show
+
+ActionView::TemplateError (undefined method `sectors' for #<Proyecto:0xb6741808>) on line #106 of app/views/proyectos/show.html.erb:
+103: 
+104: <p>
+105:   <b>Sector:</b>
+106:   <%=h @proyecto.sectors.descripcion %>
+107: </p>
+108: </td>
+109: <td width="35%"></td>
+
+    app/views/proyectos/show.html.erb:106
+    app/controllers/proyectos_controller.rb:18:in `show'
+
+Rendered rescues/_trace (59.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProyectosController#show (for 127.0.0.1 at 2010-07-27 11:52:34) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mProyecto Load (0.4ms)[0m   [0mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 5) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/show
+
+ActionView::TemplateError (undefined method `descripcion' for nil:NilClass) on line #113 of app/views/proyectos/show.html.erb:
+110: <td>
+111: <p>
+112:   <b>Tipo proy:</b>
+113:   <%=h @proyecto.tipo_proy.descripcion %>
+114: </p>
+115: 
+116: <p>
+
+    app/views/proyectos/show.html.erb:113
+    app/controllers/proyectos_controller.rb:18:in `show'
+
+Rendered rescues/_trace (62.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mProyecto Load (1.7ms)[0m   [0;1mSELECT * FROM "proyectos" [0m
+  [4;35;1mTipoProy Load (0.2ms)[0m   [0mSELECT * FROM "tipo_proys" WHERE ("tipo_proys"."id" = 2) [0m
+
+
+Processing ProyectosController#new (for 127.0.0.1 at 2010-07-27 11:58:41) [GET]
+Rendering template within layouts/proyectos
+Rendering proyectos/new
+  [4;36;1mSector Load (0.5ms)[0m   [0;1mSELECT * FROM "sectors" ORDER BY descripcion[0m
+  [4;35;1mTipoProy Load (0.4ms)[0m   [0mSELECT * FROM "tipo_proys" ORDER BY descripcion[0m
+  [4;36;1mUbicacion Load (0.3ms)[0m   [0;1mSELECT * FROM "ubicacions" ORDER BY descripcion[0m
+  [4;35;1mEstado Load (0.4ms)[0m   [0mSELECT * FROM "estados" ORDER BY descripcion[0m
+  [4;36;1mContratacion Load (0.5ms)[0m   [0;1mSELECT * FROM "contratacions" ORDER BY descripcion[0m
+Completed in 118ms (View: 92, DB: 2) | 200 OK [http://localhost/proyectos/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 11:58:41) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#create (for 127.0.0.1 at 2010-07-27 11:59:51) [POST]
+  Parameters: {"commit"=>"Guardar", "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I=", "proyecto"=>{"otros_costos"=>"", "equipos"=>"", "fecha_final(1i)"=>"2010", "fecha_inicio(3i)"=>"27", "plazo_ejecucion"=>"", "materiales"=>"", "fecha_final(2i)"=>"7", "fecha_final(3i)"=>"27", "costo_inversion"=>"", "municipio"=>"", "empleos_hombres"=>"", "justificacion"=>"", "descripcion"=>"4", "empleos_mujeres"=>"", "mano_obra"=>"", "departamento"=>"", "nombre_proyecto"=>"Construccion de cunetas", "gasto_general"=>"", "fecha_inicio(1i)"=>"2010", "fecha_inicio(2i)"=>"7", "objetivos_metas"=>""}}
+  [4;35;1mProyecto Create (0.5ms)[0m   [0mINSERT INTO "proyectos" ("plazo_ejecucion", "fecha_inicio", "fecha_final", "equipos", "otros_costos", "sector_id", "materiales", "created_at", "municipio", "costo_inversion", "estado_id", "justificacion", "empleos_hombres", "updated_at", "descripcion", "mano_obra", "empleos_mujeres", "departamento", "nombre_proyecto", "tipo_proy_id", "gasto_general", "ubicacion_id", "contratacion_id", "objetivos_metas") VALUES(NULL, '2010-07-27', '2010-07-27', NULL, NULL, NULL, NULL, '2010-07-27 17:59:51', '', NULL, NULL, '', NULL, '2010-07-27 17:59:51', '4', NULL, NULL, '', 'Construccion de cunetas', NULL, NULL, NULL, NULL, '')[0m
+Redirected to http://localhost:3000/proyectos/6
+Completed in 104ms (DB: 1) | 302 Found [http://localhost/proyectos]
+
+
+Processing ProyectosController#show (for 127.0.0.1 at 2010-07-27 11:59:51) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mProyecto Load (0.4ms)[0m   [0;1mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 6) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/show
+
+ActionView::TemplateError (undefined method `descripcion' for nil:NilClass) on line #106 of app/views/proyectos/show.html.erb:
+103: 
+104: <p>
+105:   <b>Sector:</b>
+106:   <%=h @proyecto.sector.descripcion %>
+107: </p>
+108: </td>
+109: <td width="35%"></td>
+
+    app/views/proyectos/show.html.erb:106
+    app/controllers/proyectos_controller.rb:18:in `show'
+
+Rendered rescues/_trace (59.8ms)
+Rendered rescues/_request_and_response (1.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProyectosController#index (for 127.0.0.1 at 2010-07-27 12:09:45) [GET]
+  [4;36;1mProyecto Load (2.0ms)[0m   [0;1mSELECT * FROM "proyectos" [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/index
+Completed in 83ms (View: 56, DB: 2) | 200 OK [http://localhost/proyectos]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:09:45) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#new (for 127.0.0.1 at 2010-07-27 12:09:54) [GET]
+Rendering template within layouts/proyectos
+Rendering proyectos/new
+  [4;35;1mUbicacion Load (0.4ms)[0m   [0mSELECT * FROM "ubicacions" ORDER BY descripcion[0m
+  [4;36;1mEstado Load (0.5ms)[0m   [0;1mSELECT * FROM "estados" ORDER BY descripcion[0m
+  [4;35;1mContratacion Load (0.5ms)[0m   [0mSELECT * FROM "contratacions" ORDER BY descripcion[0m
+Completed in 151ms (View: 136, DB: 1) | 200 OK [http://localhost/proyectos/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:09:55) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#create (for 127.0.0.1 at 2010-07-27 12:10:24) [POST]
+  Parameters: {"commit"=>"Guardar", "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I=", "proyecto"=>{"otros_costos"=>"", "equipos"=>"", "fecha_final(1i)"=>"2010", "fecha_inicio(3i)"=>"27", "plazo_ejecucion"=>"", "materiales"=>"", "fecha_final(2i)"=>"7", "fecha_final(3i)"=>"27", "costo_inversion"=>"", "municipio"=>"", "empleos_hombres"=>"", "justificacion"=>"", "descripcion"=>"1", "empleos_mujeres"=>"", "mano_obra"=>"", "departamento"=>"", "nombre_proyecto"=>"nada", "gasto_general"=>"", "fecha_inicio(1i)"=>"2010", "fecha_inicio(2i)"=>"7", "objetivos_metas"=>""}}
+  [4;36;1mProyecto Create (0.6ms)[0m   [0;1mINSERT INTO "proyectos" ("plazo_ejecucion", "fecha_inicio", "fecha_final", "equipos", "otros_costos", "sector_id", "materiales", "created_at", "municipio", "costo_inversion", "estado_id", "justificacion", "empleos_hombres", "updated_at", "descripcion", "mano_obra", "empleos_mujeres", "departamento", "nombre_proyecto", "tipo_proy_id", "gasto_general", "ubicacion_id", "contratacion_id", "objetivos_metas") VALUES(NULL, '2010-07-27', '2010-07-27', NULL, NULL, NULL, NULL, '2010-07-27 18:10:24', '', NULL, NULL, '', NULL, '2010-07-27 18:10:24', '1', NULL, NULL, '', 'nada', NULL, NULL, NULL, NULL, '')[0m
+Redirected to http://localhost:3000/proyectos/7
+Completed in 30ms (DB: 1) | 302 Found [http://localhost/proyectos]
+
+
+Processing ProyectosController#show (for 127.0.0.1 at 2010-07-27 12:10:24) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mProyecto Load (0.4ms)[0m   [0mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 7) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/show
+
+ActionView::TemplateError (undefined method `descripcion' for nil:NilClass) on line #106 of app/views/proyectos/show.html.erb:
+103: 
+104: <p>
+105:   <b>Sector:</b>
+106:   <%=h @proyecto.sector.descripcion %>
+107: </p>
+108: </td>
+109: <td width="35%"></td>
+
+    app/views/proyectos/show.html.erb:106
+    app/controllers/proyectos_controller.rb:18:in `show'
+
+Rendered rescues/_trace (137.8ms)
+Rendered rescues/_request_and_response (1.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProyectosController#show (for 127.0.0.1 at 2010-07-27 12:12:20) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mProyecto Load (0.4ms)[0m   [0;1mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 6) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/show
+
+ActionView::TemplateError (undefined method `descripcion' for nil:NilClass) on line #118 of app/views/proyectos/show.html.erb:
+115: 
+116: <p>
+117:   <b>Ubicacion:</b>
+118:   <%=h @proyecto.ubicacion.descripcion %>
+119: </p>
+120: 
+121: <p>
+
+    app/views/proyectos/show.html.erb:118
+    app/controllers/proyectos_controller.rb:18:in `show'
+
+Rendered rescues/_trace (59.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProyectosController#show (for 127.0.0.1 at 2010-07-27 12:12:53) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mProyecto Load (0.4ms)[0m   [0mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 6) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/show
+
+ActionView::TemplateError (undefined method `descripcion' for nil:NilClass) on line #118 of app/views/proyectos/show.html.erb:
+115: 
+116: <p>
+117:   <b>Ubicacion:</b>
+118:   <%=h @proyecto.ubicacion.descripcion %>
+119: </p>
+120: 
+121: <p>
+
+    app/views/proyectos/show.html.erb:118
+    app/controllers/proyectos_controller.rb:18:in `show'
+
+Rendered rescues/_trace (140.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProyectosController#show (for 127.0.0.1 at 2010-07-27 12:13:23) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mProyecto Load (0.4ms)[0m   [0;1mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 6) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/show
+Completed in 30ms (View: 15, DB: 0) | 200 OK [http://localhost/proyectos/6]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:13:23) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PiaOcotalsController#index (for 127.0.0.1 at 2010-07-27 12:13:38) [GET]
+  [4;35;1mPiaOcotal Load (0.8ms)[0m   [0mSELECT * FROM "pia_ocotals" [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/index
+Completed in 35ms (View: 24, DB: 1) | 200 OK [http://localhost/pia_ocotals]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:13:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 1) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;35;1mProyecto Load (1.3ms)[0m   [0mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 1 ) [0m
+Completed in 42ms (View: 28, DB: 1) | 200 OK [http://localhost/pia_ocotals/1]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:13:48) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;35;1mProyecto Load (1.0ms)[0m   [0mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 2 ) [0m
+Completed in 33ms (View: 20, DB: 1) | 200 OK [http://localhost/pia_ocotals/2]
+
+
+Processing ProyectosController#index (for 127.0.0.1 at 2010-07-27 12:14:57) [GET]
+  [4;36;1mProyecto Load (1.9ms)[0m   [0;1mSELECT * FROM "proyectos" [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/index
+Completed in 57ms (View: 42, DB: 2) | 200 OK [http://localhost/proyectos]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:14:58) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#edit (for 127.0.0.1 at 2010-07-27 12:15:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProyecto Load (0.4ms)[0m   [0mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 1) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/edit
+Completed in 136ms (View: 122, DB: 0) | 200 OK [http://localhost/proyectos/1/edit]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:15:14) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#edit (for 127.0.0.1 at 2010-07-27 12:15:27) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mProyecto Load (0.4ms)[0m   [0;1mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 2) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/edit
+Completed in 47ms (View: 32, DB: 0) | 200 OK [http://localhost/proyectos/2/edit]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:15:27) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#update (for 127.0.0.1 at 2010-07-27 12:15:56) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I=", "id"=>"2", "proyecto"=>{"sector_id"=>"", "otros_costos"=>"", "equipos"=>"", "fecha_final(1i)"=>"2010", "fecha_inicio(3i)"=>"27", "plazo_ejecucion"=>"", "materiales"=>"", "fecha_final(2i)"=>"7", "estado_id"=>"", "fecha_final(3i)"=>"27", "costo_inversion"=>"", "municipio"=>"", "empleos_hombres"=>"", "justificacion"=>"", "descripcion"=>"1", "empleos_mujeres"=>"", "mano_obra"=>"34000", "departamento"=>"", "tipo_proy_id"=>"", "nombre_proyecto"=>"construccion de vivienda", "contratacion_id"=>"", "ubicacion_id"=>"", "gasto_general"=>"", "fecha_inicio(1i)"=>"2010", "fecha_inicio(2i)"=>"7", "objetivos_metas"=>""}}
+  [4;35;1mProyecto Load (0.4ms)[0m   [0mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 2) [0m
+  [4;36;1mProyecto Update (0.3ms)[0m   [0;1mUPDATE "proyectos" SET "updated_at" = '2010-07-27 18:15:56', "mano_obra" = 34000.0 WHERE "id" = 2[0m
+Redirected to http://localhost:3000/proyectos/2
+Completed in 29ms (DB: 1) | 302 Found [http://localhost/proyectos/2]
+
+
+Processing ProyectosController#show (for 127.0.0.1 at 2010-07-27 12:15:56) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mProyecto Load (0.5ms)[0m   [0mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 2) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/show
+Completed in 94ms (View: 9, DB: 1) | 200 OK [http://localhost/proyectos/2]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:15:56) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:16:14) [GET]
+
+ActionController::RoutingError (No route matches "/3edit" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:16:29) [GET]
+
+ActionController::RoutingError (No route matches "/3/edit" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:16:38) [GET]
+
+ActionController::RoutingError (No route matches "/4/edit" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#show (for 127.0.0.1 at 2010-07-27 12:16:54) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mProyecto Load (0.4ms)[0m   [0;1mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 6) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/show
+Completed in 23ms (View: 8, DB: 0) | 200 OK [http://localhost/proyectos/6]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:16:54) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#edit (for 127.0.0.1 at 2010-07-27 12:17:03) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mProyecto Load (0.5ms)[0m   [0mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 6) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/edit
+Completed in 119ms (View: 35, DB: 0) | 200 OK [http://localhost/proyectos/6/edit]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:17:03) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#update (for 127.0.0.1 at 2010-07-27 12:17:19) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I=", "id"=>"6", "proyecto"=>{"sector_id"=>"", "otros_costos"=>"", "equipos"=>"", "fecha_final(1i)"=>"2010", "fecha_inicio(3i)"=>"27", "plazo_ejecucion"=>"", "materiales"=>"", "fecha_final(2i)"=>"7", "estado_id"=>"", "fecha_final(3i)"=>"27", "costo_inversion"=>"", "municipio"=>"", "empleos_hombres"=>"", "justificacion"=>"", "descripcion"=>"4", "empleos_mujeres"=>"", "mano_obra"=>"7500", "departamento"=>"", "tipo_proy_id"=>"", "nombre_proyecto"=>"Construccion de cunetas", "contratacion_id"=>"", "ubicacion_id"=>"", "gasto_general"=>"", "fecha_inicio(1i)"=>"2010", "fecha_inicio(2i)"=>"7", "objetivos_metas"=>""}}
+  [4;36;1mProyecto Load (0.4ms)[0m   [0;1mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 6) [0m
+  [4;35;1mProyecto Update (0.3ms)[0m   [0mUPDATE "proyectos" SET "updated_at" = '2010-07-27 18:17:19', "mano_obra" = 7500.0 WHERE "id" = 6[0m
+Redirected to http://localhost:3000/proyectos/6
+Completed in 29ms (DB: 1) | 302 Found [http://localhost/proyectos/6]
+
+
+Processing ProyectosController#show (for 127.0.0.1 at 2010-07-27 12:17:19) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mProyecto Load (0.4ms)[0m   [0;1mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 6) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/show
+Completed in 23ms (View: 8, DB: 0) | 200 OK [http://localhost/proyectos/6]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:17:19) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#edit (for 127.0.0.1 at 2010-07-27 12:17:29) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mProyecto Load (0.4ms)[0m   [0mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 5) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/edit
+Completed in 113ms (View: 99, DB: 0) | 200 OK [http://localhost/proyectos/5/edit]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:17:29) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#update (for 127.0.0.1 at 2010-07-27 12:17:44) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I=", "id"=>"5", "proyecto"=>{"sector_id"=>"", "otros_costos"=>"", "equipos"=>"", "fecha_final(1i)"=>"2010", "fecha_inicio(3i)"=>"27", "plazo_ejecucion"=>"", "materiales"=>"", "fecha_final(2i)"=>"7", "estado_id"=>"", "fecha_final(3i)"=>"27", "costo_inversion"=>"", "municipio"=>"", "empleos_hombres"=>"", "justificacion"=>"", "descripcion"=>"3", "empleos_mujeres"=>"", "mano_obra"=>"32000", "departamento"=>"", "tipo_proy_id"=>"", "nombre_proyecto"=>"construccion de vivienda", "contratacion_id"=>"", "ubicacion_id"=>"", "gasto_general"=>"", "fecha_inicio(1i)"=>"2010", "fecha_inicio(2i)"=>"7", "objetivos_metas"=>""}}
+  [4;36;1mProyecto Load (0.4ms)[0m   [0;1mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 5) [0m
+  [4;35;1mProyecto Update (0.4ms)[0m   [0mUPDATE "proyectos" SET "updated_at" = '2010-07-27 18:17:44', "mano_obra" = 32000.0 WHERE "id" = 5[0m
+Redirected to http://localhost:3000/proyectos/5
+Completed in 30ms (DB: 1) | 302 Found [http://localhost/proyectos/5]
+
+
+Processing ProyectosController#show (for 127.0.0.1 at 2010-07-27 12:17:44) [GET]
+  Parameters: {"id"=>"5"}
+  [4;36;1mProyecto Load (0.5ms)[0m   [0;1mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 5) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/show
+Completed in 24ms (View: 9, DB: 1) | 200 OK [http://localhost/proyectos/5]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:17:44) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#edit (for 127.0.0.1 at 2010-07-27 12:17:53) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mProyecto Load (0.4ms)[0m   [0mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 4) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/edit
+Completed in 46ms (View: 32, DB: 0) | 200 OK [http://localhost/proyectos/4/edit]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:17:53) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#update (for 127.0.0.1 at 2010-07-27 12:18:07) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I=", "id"=>"4", "proyecto"=>{"sector_id"=>"", "otros_costos"=>"", "equipos"=>"", "fecha_final(1i)"=>"2010", "fecha_inicio(3i)"=>"27", "plazo_ejecucion"=>"", "materiales"=>"", "fecha_final(2i)"=>"7", "estado_id"=>"", "fecha_final(3i)"=>"27", "costo_inversion"=>"", "municipio"=>"", "empleos_hombres"=>"", "justificacion"=>"", "descripcion"=>"3", "empleos_mujeres"=>"", "mano_obra"=>"21900", "departamento"=>"", "tipo_proy_id"=>"", "nombre_proyecto"=>"construccion de vivienda", "contratacion_id"=>"", "ubicacion_id"=>"", "gasto_general"=>"", "fecha_inicio(1i)"=>"2010", "fecha_inicio(2i)"=>"7", "objetivos_metas"=>""}}
+  [4;36;1mProyecto Load (0.4ms)[0m   [0;1mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 4) [0m
+  [4;35;1mProyecto Update (0.3ms)[0m   [0mUPDATE "proyectos" SET "updated_at" = '2010-07-27 18:18:07', "mano_obra" = 21900.0 WHERE "id" = 4[0m
+Redirected to http://localhost:3000/proyectos/4
+Completed in 29ms (DB: 1) | 302 Found [http://localhost/proyectos/4]
+
+
+Processing ProyectosController#show (for 127.0.0.1 at 2010-07-27 12:18:07) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mProyecto Load (0.4ms)[0m   [0;1mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 4) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/show
+Completed in 23ms (View: 8, DB: 0) | 200 OK [http://localhost/proyectos/4]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:18:07) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#edit (for 127.0.0.1 at 2010-07-27 12:18:17) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mProyecto Load (0.4ms)[0m   [0mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 3) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/edit
+Completed in 46ms (View: 32, DB: 0) | 200 OK [http://localhost/proyectos/3/edit]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:18:17) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProyectosController#update (for 127.0.0.1 at 2010-07-27 12:18:37) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"eUoDHYoY9tZBhGtsiirvmIJKSeBPfC4XZ3wPKMjCt2I=", "id"=>"3", "proyecto"=>{"sector_id"=>"", "otros_costos"=>"", "equipos"=>"", "fecha_final(1i)"=>"2010", "fecha_inicio(3i)"=>"27", "plazo_ejecucion"=>"", "materiales"=>"", "fecha_final(2i)"=>"7", "estado_id"=>"", "fecha_final(3i)"=>"27", "costo_inversion"=>"", "municipio"=>"", "empleos_hombres"=>"", "justificacion"=>"", "descripcion"=>"3", "empleos_mujeres"=>"", "mano_obra"=>"16743", "departamento"=>"", "tipo_proy_id"=>"", "nombre_proyecto"=>"construccion de vivienda", "contratacion_id"=>"", "ubicacion_id"=>"", "gasto_general"=>"", "fecha_inicio(1i)"=>"2010", "fecha_inicio(2i)"=>"7", "objetivos_metas"=>""}}
+  [4;36;1mProyecto Load (0.4ms)[0m   [0;1mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 3) [0m
+  [4;35;1mProyecto Update (0.3ms)[0m   [0mUPDATE "proyectos" SET "updated_at" = '2010-07-27 18:18:37', "mano_obra" = 16743.0 WHERE "id" = 3[0m
+Redirected to http://localhost:3000/proyectos/3
+Completed in 30ms (DB: 1) | 302 Found [http://localhost/proyectos/3]
+
+
+Processing ProyectosController#show (for 127.0.0.1 at 2010-07-27 12:18:37) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProyecto Load (0.5ms)[0m   [0;1mSELECT * FROM "proyectos" WHERE ("proyectos"."id" = 3) [0m
+Rendering template within layouts/proyectos
+Rendering proyectos/show
+Completed in 24ms (View: 8, DB: 0) | 200 OK [http://localhost/proyectos/3]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 12:18:37) [GET]
+
+ActionController::RoutingError (No route matches "/images/poderc.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PiaOcotalsController#index (for 127.0.0.1 at 2010-07-27 12:21:13) [GET]
+  [4;35;1mPiaOcotal Load (0.8ms)[0m   [0mSELECT * FROM "pia_ocotals" [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/index
+Completed in 23ms (View: 13, DB: 1) | 200 OK [http://localhost/pia_ocotals]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:21:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 1) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;35;1mProyecto Load (1.2ms)[0m   [0mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 1 ) [0m
+Completed in 106ms (View: 93, DB: 1) | 200 OK [http://localhost/pia_ocotals/1]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:21:28) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;35;1mProyecto Load (1.0ms)[0m   [0mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 2 ) [0m
+Completed in 34ms (View: 21, DB: 1) | 200 OK [http://localhost/pia_ocotals/2]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:25:33) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;35;1mProyecto Load (1.0ms)[0m   [0mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 2 ) [0m
+Completed in 38ms (View: 26, DB: 1) | 200 OK [http://localhost/pia_ocotals/2]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:27:11) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;35;1mProyecto Load (1.1ms)[0m   [0mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 2 ) [0m
+
+ActionView::TemplateError (undefined local variable or method `total' for #<ActionView::Base:0xb656f7dc>) on line #16 of app/views/pia_ocotals/show.html.erb:
+13:     <%=h proyecto.mano_obra %>
+14:  <% total += proyecto.mano_obra %>
+15: <% end %>
+16:    <br />Total: <%= total %>
+17: 
+18: 
+19: <%= link_to 'Modificar', edit_pia_ocotal_path(@pia_ocotal) %> |
+
+    app/views/pia_ocotals/show.html.erb:16
+    app/controllers/pia_ocotals_controller.rb:18:in `show'
+
+Rendered rescues/_trace (133.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:27:54) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;35;1mProyecto Load (1.0ms)[0m   [0mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 2 ) [0m
+Completed in 38ms (View: 26, DB: 1) | 200 OK [http://localhost/pia_ocotals/2]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:28:25) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;35;1mProyecto Load (1.0ms)[0m   [0mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 2 ) [0m
+Completed in 38ms (View: 26, DB: 1) | 200 OK [http://localhost/pia_ocotals/2]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:29:33) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;35;1mProyecto Load (1.1ms)[0m   [0mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 2 ) [0m
+Completed in 114ms (View: 102, DB: 1) | 200 OK [http://localhost/pia_ocotals/2]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:30:13) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;35;1mProyecto Load (1.0ms)[0m   [0mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 2 ) [0m
+Completed in 39ms (View: 26, DB: 1) | 200 OK [http://localhost/pia_ocotals/2]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:31:24) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;35;1mProyecto Load (1.0ms)[0m   [0mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 2 ) [0m
+Completed in 38ms (View: 26, DB: 1) | 200 OK [http://localhost/pia_ocotals/2]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:33:38) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;35;1mProyecto Load (0.9ms)[0m   [0mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 2 ) [0m
+Completed in 38ms (View: 25, DB: 1) | 200 OK [http://localhost/pia_ocotals/2]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:34:00) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;35;1mProyecto Load (1.0ms)[0m   [0mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 2 ) [0m
+Completed in 40ms (View: 27, DB: 1) | 200 OK [http://localhost/pia_ocotals/2]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:35:07) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPiaOcotal Load (0.2ms)[0m   [0;1mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+ERROR: compiling _run_erb_app47views47pia_ocotals47show46html46erb RAISED compile error
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:12: syntax error, unexpected '<'
+...<b>+proyecto.nombre_proyecto+</b> ).to_s); @output_buffer.co...
+                              ^
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:15: unmatched ): /b> ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat((h proyecto.mano_obra ).to_s); @output_buffer.concat "\n  "
+;  @total +=  proyecto.mano_obra.to_i ; @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n<br /
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:15: syntax error, unexpected ':', expecting ')'
+;  end ; @output_buffer.concat "\n<br />Total: "
+                                              ^
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:16: syntax error, unexpected $undefined, expecting ')'
+...o_s); @output_buffer.concat "\n\n<br /><br />\n"
+                              ^
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:16: syntax error, unexpected tREGEXP_BEG, expecting kDO or '{' or '('
+...utput_buffer.concat "\n\n<br /><br />\n"
+                              ^
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:16: syntax error, unexpected $undefined
+...ffer.concat "\n\n<br /><br />\n"
+                              ^
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:19: syntax error, unexpected $undefined
+...s); @output_buffer.concat " |\n"
+                              ^
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:19: unterminated string meets end of file
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:19: syntax error, unexpected $end, expecting ')'
+Function body:           def _run_erb_app47views47pia_ocotals47show46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<p>\n  <b>Nombre:</b>\n  <strong>"
+
+; @output_buffer.concat((h @pia_ocotal.nombre ).to_s); @output_buffer.concat "</strong></p>\n  <p>\n  <b>Fecha:</b>\n  "
+
+
+; @output_buffer.concat((h @pia_ocotal.fecha ).to_s); @output_buffer.concat "\n</p>\n\n"
+
+
+;  @total = 0 ; @output_buffer.concat " \n"
+;  @pia_ocotal.proyectos.each do |proyecto| ; @output_buffer.concat "\n  <br />\n  "
+
+; @output_buffer.concat((h <b>+proyecto.nombre_proyecto+</b> ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat((h proyecto.mano_obra ).to_s); @output_buffer.concat "\n  "
+;  @total +=  proyecto.mano_obra.to_i ; @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n<br />Total: "
+; @output_buffer.concat(( @total ).to_s); @output_buffer.concat "\n\n<br /><br />\n"
+
+
+; @output_buffer.concat(( link_to 'Modificar', edit_pia_ocotal_path(@pia_ocotal) ).to_s); @output_buffer.concat " |\n"
+; @output_buffer.concat(( link_to 'Back', pia_ocotals_path ).to_s); @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:19:in `compile!'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:942:in `render_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:135:in `send'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:135
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:179:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:179:in `respond'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:173:in `each'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:173:in `respond'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/home/informatica/augusto/pia/app/controllers/pia_ocotals_controller.rb:18:in `show'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `send'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/var/lib/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/var/lib/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/chunked.rb:15:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:67:in `process'
+/var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/var/lib/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:38:in `run'
+/var/lib/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:12: syntax error, unexpected '<'
+...<b>+proyecto.nombre_proyecto+</b> ).to_s); @output_buffer.co...
+                              ^
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:15: unmatched ): /b> ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat((h proyecto.mano_obra ).to_s); @output_buffer.concat "\n  "
+;  @total +=  proyecto.mano_obra.to_i ; @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n<br /
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:15: syntax error, unexpected ':', expecting ')'
+;  end ; @output_buffer.concat "\n<br />Total: "
+                                              ^
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:16: syntax error, unexpected $undefined, expecting ')'
+...o_s); @output_buffer.concat "\n\n<br /><br />\n"
+                              ^
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:16: syntax error, unexpected tREGEXP_BEG, expecting kDO or '{' or '('
+...utput_buffer.concat "\n\n<br /><br />\n"
+                              ^
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:16: syntax error, unexpected $undefined
+...ffer.concat "\n\n<br /><br />\n"
+                              ^
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:19: syntax error, unexpected $undefined
+...s); @output_buffer.concat " |\n"
+                              ^
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:19: unterminated string meets end of file
+/home/informatica/augusto/pia/app/views/pia_ocotals/show.html.erb:19: syntax error, unexpected $end, expecting ')') on line #12 of app/views/pia_ocotals/show.html.erb:
+9: <% @total = 0 %> 
+10: <% @pia_ocotal.proyectos.each do |proyecto| %>
+11:   <br />
+12:   <%=h <b>+proyecto.nombre_proyecto+</b> %>
+13:   <%=h proyecto.mano_obra %>
+14:   <% @total +=  proyecto.mano_obra.to_i %>
+15: <% end %>
+
+    app/views/pia_ocotals/show.html.erb:19:in `compile!'
+    app/controllers/pia_ocotals_controller.rb:18:in `show'
+
+Rendered rescues/_trace (56.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:35:36) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mPiaOcotal Load (0.2ms)[0m   [0mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;36;1mProyecto Load (1.0ms)[0m   [0;1mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 2 ) [0m
+Completed in 115ms (View: 102, DB: 1) | 200 OK [http://localhost/pia_ocotals/2]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:36:01) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mPiaOcotal Load (0.2ms)[0m   [0mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;36;1mProyecto Load (1.0ms)[0m   [0;1mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 2 ) [0m
+Completed in 40ms (View: 27, DB: 1) | 200 OK [http://localhost/pia_ocotals/2]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:36:17) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mPiaOcotal Load (0.2ms)[0m   [0mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;36;1mProyecto Load (0.9ms)[0m   [0;1mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 2 ) [0m
+Completed in 38ms (View: 26, DB: 1) | 200 OK [http://localhost/pia_ocotals/2]
+
+
+Processing PiaOcotalsController#show (for 127.0.0.1 at 2010-07-27 12:37:45) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mPiaOcotal Load (0.2ms)[0m   [0mSELECT * FROM "pia_ocotals" WHERE ("pia_ocotals"."id" = 2) [0m
+Rendering template within layouts/pia_ocotals
+Rendering pia_ocotals/show
+  [4;36;1mProyecto Load (0.9ms)[0m   [0;1mSELECT * FROM "proyectos" INNER JOIN "pia_ocotals_proyectos" ON "proyectos".id = "pia_ocotals_proyectos".proyecto_id WHERE ("pia_ocotals_proyectos".pia_ocotal_id = 2 ) [0m
+Completed in 38ms (View: 26, DB: 1) | 200 OK [http://localhost/pia_ocotals/2]

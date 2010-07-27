@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  pia_ocotal_id: 1
+  proyecto_id: 1
+
+two:
+  pia_ocotal_id: 1
+  proyecto_id: 1

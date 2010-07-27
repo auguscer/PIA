@@ -1,0 +1,22 @@
+<h1>Listing pia_ocotals</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Fecha</th>
+  </tr>
+
+<% @pia_ocotals.each do |pia_ocotal| %>
+  <tr>
+    <td><%=h pia_ocotal.nombre %></td>
+    <td><%=h pia_ocotal.fecha %></td>
+    <td><%= link_to 'Show', pia_ocotal %></td>
+    <td><%= link_to 'Edit', edit_pia_ocotal_path(pia_ocotal) %></td>
+    <td><%= link_to 'Destroy', pia_ocotal, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New pia_ocotal', new_pia_ocotal_path %>

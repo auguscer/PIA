@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :pia_ocotals_proyectos
+
+  map.resources :pia_ocotals
+
   map.resources :contratacions
 
   map.resources :estados

@@ -1,0 +1,22 @@
+<h1>Listing pia_ocotals_proyectos</h1>
+
+<table>
+  <tr>
+    <th>Pia ocotal</th>
+    <th>Proyecto</th>
+  </tr>
+
+<% @pia_ocotals_proyectos.each do |pia_ocotals_proyecto| %>
+  <tr>
+    <td><%=h pia_ocotals_proyecto.pia_ocotal_id %></td>
+    <td><%=h pia_ocotals_proyecto.proyecto_id %></td>
+    <td><%= link_to 'Show', pia_ocotals_proyecto %></td>
+    <td><%= link_to 'Edit', edit_pia_ocotals_proyecto_path(pia_ocotals_proyecto) %></td>
+    <td><%= link_to 'Destroy', pia_ocotals_proyecto, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New pia_ocotals_proyecto', new_pia_ocotals_proyecto_path %>

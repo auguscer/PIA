@@ -1,52 +1,63 @@
-<br>
-<center> <font size =10 color="Brown">INGRESAR NUEVA FICHA DE PROYECTO</font></center> 
-<br>
-<br>
-
 <%= error_messages_for :proyecto %>
 
 <% form_for(@proyecto) do |f| %>
   
-<table>
-<align="left"><font size = 4 color="Red">Datos Generales</align></font >
-<tr>
-<td>
-  <p>
+
+<div id="datos_generales">
+<h1>Datos Generales</h1>
+
+    <div class="item">
     <b>Municipio</b><br />
     <%= f.text_field :municipio %>
-  </p>
+    </div>
 
-  <p>
+    <div class="item">
     <b>Departamento</b><br />
     <%= f.text_field :departamento %>
-  </p>
+   </div>
 
-  <p>
+   <div class="item">
     <b>Nombre proyecto</b><br />
     <%= f.text_field :nombre_proyecto %>
-  </p>
-
-  <p>
+    </div>
+    
+<div class="salto"></div>
+ <div class="item">
     <b>Descripcion</b><br />
     <%= f.text_field :descripcion %>
-  </p>
+</div>
+<div class="item">
+    <b>Sector</b><br/>
+    <%=@sectors = Sector.find(:all, :order => "descripcion")
+    f.collection_select(:descripcion, @sectors, :id, :descripcion)
+    %>
+</div>
+<div class="item">
+    <b>Tipo proy</b><br />
+    <%=@tipo_proys = TipoProy.find(:all, :order => "descripcion")
+    f.collection_select(:descripcion, @tipo_proys, :id, :descripcion)
+    %>
+ </div>
 
-<td>
-  <p>
+ <div class="item">
+    <b>Ubicacion</b><br />
+    <%=@ubicacions = Ubicacion.find(:all, :order => "descripcion")
+    f.collection_select(:descripcion, @ubicacions, :id, :descripcion)
+    %>
+</div>
+<div class="salto"></div>
+<div class="item">  
+
     <b>Objetivos metas</b><br />
-    <%= f.text_area :objetivos_metas %>
-  </p>
-</td>
-<td>
-  <p>
+    <%= f.text_area :objetivos_metas, :cols => "30", :rows => "5" %>
+</div>
+ <div class="item">
     <b>Justificacion</b><br />
-    <%= f.text_area :justificacion %>
-  </p>
-</td>
-
-<td width="1%"></td>
-
-<td>
+    
+    <%= f.text_area :justificacion, :cols => "30", :rows => "5" %>
+</div>
+<div class="salto"></div>
+</div>
  <p>
     <b>Costo inversion</b><br />
     <%= f.text_field :costo_inversion %>
@@ -85,13 +96,7 @@
     <b>Gasto general</b><br />
     <%= f.text_field :gasto_general %>
   </p>
-</td>
-</tr>
-</table>
 <br>
-<table>
-<tr>
-<td>
   <p>
     <b>Otros costos</b><br />
     <%= f.text_field :otros_costos %>
@@ -107,28 +112,7 @@
     <%= f.text_field :empleos_mujeres %>
   </p>
 
-  <p>
-    <b>Sector</b><br/>
-    <%=@sectors = Sector.find(:all, :order => "descripcion")
-    f.collection_select(:descripcion, @sectors, :id, :descripcion)
-    %>
-  </p>
-</td>
-<td width="35%"></td>
-<td>
-  <p>
-    <b>Tipo proy</b><br />
-    <%=@tipo_proys = TipoProy.find(:all, :order => "descripcion")
-    f.collection_select(:descripcion, @tipo_proys, :id, :descripcion)
-    %>
-  </p>
-
-  <p>
-    <b>Ubicacion</b><br />
-    <%=@ubicacions = Ubicacion.find(:all, :order => "descripcion")
-    f.collection_select(:descripcion, @ubicacions, :id, :descripcion)
-    %>
-  </p>
+  
 
   <p>
     <b>Estado</b><br />
@@ -143,9 +127,6 @@
     f.collection_select(:descripcion, @contracions, :id, :descripcion)
     %>
   </p>
-</td>
-</tr>
-</table>
   <p>
     <%= f.submit "Guardar" %>
   </p>
