@@ -1,0 +1,24 @@
+<h1>Listing fuentes</h1>
+
+<table>
+  <tr>
+    <th>Tipo fuente</th>
+    <th>Monto</th>
+    <th>Nombre proyecto </th>
+  </tr>
+
+<% @fuentes.each do |fuente| %>
+  <tr>
+    <td><%=h fuente.tipo_fuente.descripcion %></td>
+    <td><%=h fuente.monto %></td>
+    <td><%=h fuente.proyecto.nombre_proyecto %>
+    <td><%= link_to 'Show', fuente %></td>
+    <td><%= link_to 'Edit', edit_fuente_path(fuente) %></td>
+    <td><%= link_to 'Destroy', fuente, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New fuente', new_fuente_path %>

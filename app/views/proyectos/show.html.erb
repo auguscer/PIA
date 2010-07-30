@@ -25,7 +25,16 @@
   <b>Descripcion:</b>
   <%=h @proyecto.descripcion %>
 </p>
-
+<p>
+<b>Fuentes de financiamiento</b><br />
+<% x = 0 %>
+<% @proyecto.fuentes.each do |fuen| %>
+  <%= fuen.tipo_fuente.descripcion %>: 
+  <%= fuen.monto %><br />
+  <% x += fuen.monto.to_i %>
+<% end %>
+<b>Total: </b><%= x %>
+</p>
 
 <p>
   <b>Objetivos metas:</b>
@@ -41,6 +50,7 @@
 <p>
   <b>Costo inversion:</b>
   <%=h @proyecto.costo_inversion %>
+  <% z =  @proyecto.costo_inversion.to_i %>
 </p>
 </td>
 <td width="12%"></td>
@@ -63,34 +73,38 @@
 <p>
   <b>Mano obra:</b>
   <%=h @proyecto.mano_obra %>
-</p>
-
-<p>
+<% y = @proyecto.mano_obra.to_i %>
+<br />
   <b>Materiales:</b>
   <%=h @proyecto.materiales %>
-</p>
+  <% y +=@proyecto.materiales.to_i %>
 
-<p>
+<br />
   <b>Equipos:</b>
   <%=h @proyecto.equipos %>
-</p>
-
-<p>
+  <% y += @proyecto.equipos.to_i  %>
+<br />
   <b>Gasto general:</b>
   <%=h @proyecto.gasto_general %>
+  <% y +=  @proyecto.gasto_general.to_i   %>
+<br>
+
+  <b>Otros costos:</b>
+  <%=h @proyecto.otros_costos %>
+  <% y += @proyecto.otros_costos.to_i %>
+
+
+</p>
+<b>Total de la inversion:</b> <%= y %><br/>
+<%= '<p id="errorExplanation2">' unless x==y and z==y %>
+<%= "No coinciden la inversion y el gasto" unless x==y %><br />
+<%= "No coinciden la inversion y el detalle de la inversion" unless z==y %>
 </p>
 </td>
 </tr>
 </table>
-<br>
-
 <table>
 <td>
-<p>
-  <b>Otros costos:</b>
-  <%=h @proyecto.otros_costos %>
-</p>
-
 <p>
   <b>Empleos hombres:</b>
   <%=h @proyecto.empleos_hombres %>
@@ -103,24 +117,24 @@
 
 <p>
   <b>Sector:</b>
-  %=h @proyecto.sector.descripcion %>
+  <%=h @proyecto.sector.descripcion %>
 </p>
 </td>
 <td width="35%"></td>
 <td>
 <p>
   <b>Tipo proy:</b>
-  %=h @proyecto.tipo_proy.descripcion %>
+  <%=h @proyecto.tipo_proy.descripcion %>
 </p>
 
 <p>
   <b>Ubicacion:</b>
-  %=h @proyecto.ubicacion.descripcion %>
+  <%=h @proyecto.ubicacion.descripcion %>
 </p>
 
 <p>
   <b>Estado:</b>
-  %=h @proyecto.estado_id %>
+  <%=h @proyecto.estado_id %>
 </p>
 
 <p>

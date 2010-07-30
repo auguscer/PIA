@@ -4,19 +4,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Proyectos: <%= controller.action_name %></title>
-
- <%= javascript_include_tag :defaults %>
+  <title>Fuentes: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'scaffold' %>
-  <%= stylesheet_link_tag 'proyectos' %> 
 </head>
 <body>
 
-<img src="/images/poderc.jpg" class="izq">
-<h1 id="titulo">REGISTRO DE PROYECTOS</h1> 
-<p style="color: green"><%= flash[:notice] %></p>
+<p style="color: green"><%= notice %></p>
 
-<%= yield  %>
+<%= yield %>
 
 </body>
 </html>

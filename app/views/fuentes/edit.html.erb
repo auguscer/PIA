@@ -1,0 +1,20 @@
+<h1>Editing fuente</h1>
+
+<% form_for(@fuente) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :tipo_fuente_id %><br />
+    <%= f.text_field :tipo_fuente_id %>
+  </p>
+  <p>
+    <%= f.label :monto %><br />
+    <%= f.text_field :monto %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @fuente %> |
+<%= link_to 'Back', fuentes_path %>

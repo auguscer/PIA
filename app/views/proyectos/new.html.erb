@@ -29,23 +29,24 @@
 <div class="item">
     <b>Sector</b><br/>
     <%=@sectors = Sector.find(:all, :order => "descripcion")
-    f.collection_select(:descripcion, @sectors, :id, :descripcion)
+    f.collection_select(:sector_id, @sectors, :id, :descripcion)
     %>
 </div>
 <div class="item">
     <b>Tipo proy</b><br />
     <%=@tipo_proys = TipoProy.find(:all, :order => "descripcion")
-    f.collection_select(:descripcion, @tipo_proys, :id, :descripcion)
+    f.collection_select(:tipo_proy_id, @tipo_proys, :id, :descripcion)
     %>
  </div>
 
  <div class="item">
     <b>Ubicacion</b><br />
     <%=@ubicacions = Ubicacion.find(:all, :order => "descripcion")
-    f.collection_select(:descripcion, @ubicacions, :id, :descripcion)
+    f.collection_select(:ubicacion_id, @ubicacions, :id, :descripcion)
     %>
 </div>
 <div class="salto"></div>
+ <%= render :partial => 'form' %>
 <div class="item">  
 
     <b>Objetivos metas</b><br />
@@ -117,14 +118,14 @@
   <p>
     <b>Estado</b><br />
     <%=@estados = Estado.find(:all, :order => "descripcion")
-    f.collection_select(:descripcion, @estados, :id, :descripcion)
+    f.collection_select(:estado_id, @estados, :id, :descripcion)
     %>
   </p>
 
   <p>
     <b>Contratacion</b><br />
    <%=@contracions = Contratacion.find(:all, :order => "descripcion")
-    f.collection_select(:descripcion, @contracions, :id, :descripcion)
+    f.collection_select(:contratacion_id, @contracions, :id, :descripcion)
     %>
   </p>
   <p>

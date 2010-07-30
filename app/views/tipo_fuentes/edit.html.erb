@@ -1,0 +1,16 @@
+<h1>Editing tipo_fuente</h1>
+
+<% form_for(@tipo_fuente) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :descripcion %><br />
+    <%= f.text_field :descripcion %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @tipo_fuente %> |
+<%= link_to 'Back', tipo_fuentes_path %>

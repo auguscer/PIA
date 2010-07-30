@@ -1,0 +1,20 @@
+<h1>Listing tipo_fuentes</h1>
+
+<table>
+  <tr>
+    <th>Descripcion</th>
+  </tr>
+
+<% @tipo_fuentes.each do |tipo_fuente| %>
+  <tr>
+    <td><%=h tipo_fuente.descripcion %></td>
+    <td><%= link_to 'Show', tipo_fuente %></td>
+    <td><%= link_to 'Edit', edit_tipo_fuente_path(tipo_fuente) %></td>
+    <td><%= link_to 'Destroy', tipo_fuente, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New tipo_fuente', new_tipo_fuente_path %>

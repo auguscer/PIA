@@ -1,0 +1,12 @@
+<div class="fuente">
+<% new_or_existing = fuente.new_record? ? 'new' : 'existing' %>
+<% prefix = "proyecto[#{new_or_existing}_fuente_attributes][]" %>
+<% fields_for prefix, fuente do |fuente_form| -%>
+   <%=  @tipo_fuentes = TipoFuente.find(:all)
+        fuente_form.collection_select(:tipo_fuente_id, @tipo_fuentes, :id, :descripcion )
+	%>
+   <p>
+   <%= fuente_form.label :monto %><br />
+   <%= fuente_form.text_field :monto %>
+   </p>
+<% end %>

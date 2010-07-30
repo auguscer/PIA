@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :tipo_fuentes
+
+  map.resources :fuentes
+
   map.resources :pia_ocotals_proyectos
 
   map.resources :pia_ocotals
