@@ -33,3 +33,9 @@ div.salto {
      margin-bottom:45px;     
      margin-top:25px;
     }
+div#fuentes {border:2px solid red;
+	         background-color: #f0f0f0;
+			padding: 7px;
+			  padding-bottom: 12px;
+			  margin-bottom: 20px;
+			margin-top:10px;}

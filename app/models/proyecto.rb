@@ -5,8 +5,8 @@ class Proyecto < ActiveRecord::Base
 	belongs_to :estado
 	belongs_to :contratacion
 	has_and_belongs_to_many :pia_ocotals
-        has_many :fuentes, :dependent => :destroy
-        validates_associated :fuentes
+  has_many :fuentes, :dependent => :destroy
+  validates_associated :fuentes
 
 def new_fuente_attributes=(fuente_attributes)
     fuente_attributes.each do |attributes|

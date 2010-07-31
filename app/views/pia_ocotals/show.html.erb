@@ -1,20 +1,47 @@
+<h1>Plan de Inversión Anual (PIA)</h1>
+
 <p>
   <b>Nombre:</b>
-  <strong><%=h @pia_ocotal.nombre %></strong></p>
+  <strong> <%=h @pia_ocotal.nombre %></strong></p>
   <p>
-  <b>Fecha:</b>
-  <%=h @pia_ocotal.fecha %>
+  <b>Fecha:</b> <%=h @pia_ocotal.fecha %>
 </p>
 
 <% @total = 0 %> 
+<table>
+<%	s1 = Set.new() %> 
 <% @pia_ocotal.proyectos.each do |proyecto| %>
-  <br />
-  <%=h proyecto.nombre_proyecto %>
-  <%=h proyecto.mano_obra %>
-  <% @total +=  proyecto.mano_obra.to_i %>
+  <% proyecto.fuentes.size %>
+ <% fuent = 1%>
 <% end %>
+<% @pia_ocotal.proyectos.each do |proyecto| %>
+  <tr >
+    <td><%=h proyecto.nombre_proyecto %></td>
+    <td><%=h proyecto.descripcion %></td>
+    <td><%=h proyecto.costo_inversion %>
+	<% pr_id = proyecto.id%>
+	ttttttttttttttttttttttttttttttt
+	<% sql=["select proyectos.nombre_proyecto,tipo_fuentes.descripcion, fuentes.monto 
+	                   from proyectos, pia_ocotals, pia_ocotals_proyectos,fuentes,tipo_fuentes  
+	                   where pia_ocotals_proyectos.proyecto_id=? 
+	                   and pia_ocotals_proyectos.pia_ocotal_id=pia_ocotals.id 
+	                   and ? =fuentes.proyecto_id 
+	                   and fuentes.tipo_fuente_id=tipo_fuentes.id;", pr_id,pr_id] %>
+	<% consulta = Fuente.find_by_sql(sql) %>
+	<%= debug(consulta)%>
+	<% consulta.each do |c| %>
+	<%= c['descripcion']  %>
+	<% end %>ssssssssssssssssssssssssssss
+	
+		
+	</td><td><% @total +=  proyecto.costo_inversion.to_i %></td>
+    <td><%=h proyecto.plazo_ejecucion %></td>
+    <td><%=h proyecto.fecha_inicio %></td>
+    <td><%=h proyecto.fecha_final %></td>
+</tr>
+<% end %>
+</table>
 <br />Total: <%= @total %>
-
-<br /><br />
+<br />
 <%= link_to 'Modificar', edit_pia_ocotal_path(@pia_ocotal) %> |
 <%= link_to 'Back', pia_ocotals_path %>
